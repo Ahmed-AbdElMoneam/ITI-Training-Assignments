@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>Assignment3</title>
+        <style>
+            table{
+                width: 700px;
+                margin: 20px auto;
+                position: relative;
+            }
+            li{
+                width: fit-content;
+            }
+            .frow{
+                border: 3px solid black;
+            }
+            #left{
+                text-align: right;
+            }
+            #r1{
+                width: 50%;
+                height: 200px;
+            }
+        </style>
+        <script src="jq.js"></script>
+        <script>
+            $(function(){
+                var selected = 0;
+                $("ul").click(function(e){
+                    if(e.target.nodeName == "LI"){
+                        selected = e.target;
+                        $("li").css("background-color", "white");
+                        $(selected).css("background-color", "red");
+                    }
+                });
+                $("td:eq(3)").click(function(){
+                    $(selected).appendTo("ul:eq(1)");
+                    $(selected).css("background-color", "white");
+                });
+                $("td:eq(2)").click(function(){
+                    $(selected).appendTo("ul:eq(0)");
+                    $(selected).css("background-color", "white");
+                });
+                $("input:eq(3)").click(function(){
+                    var inputtext = $("input:eq(2)").val();
+                    $("<li>" + inputtext + "</li>").appendTo("ul:eq(0)");
+                    $("input:eq(2)").focus();
+                    $("input:eq(2)").select();
+                });
+            });
+        </script>
+	</head>
+	<body>
+        <table cellspacing="10">
+            <tr>
+                <td class="frow" id="r1">
+                    <ul>
+                        <li> JS </li>
+                        <li> Jquery </li>
+                        <li> Angular </li>
+					    <li> HTML </li>
+                    </ul>
+                </td>
+                <td class="frow">
+                    <ul>
+                        <li> CSS </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td id="left"><input type="button" value="&lt;"></td>
+                <td><input type="button" value="&gt;"></td>
+            </tr>
+            <tr>
+                <td>AddCourse</td>
+                <td>
+                    <input type="text">
+                    <input type="button" value="Add">
+                </td>
+            </tr>
+        </table>
+	</body>
+</html>

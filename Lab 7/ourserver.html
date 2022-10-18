@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+        <script>
+            var data = location.href.substring(location.href.indexOf("?") + 1);
+            var name = data.split("&")[0].split("=")[1];
+            var gender = data.split("&")[2].split("=")[1];
+            var color = data.split("&")[3].split("=")[1];
+            
+            document.write("<img " + "src='" + gender + ".png"+ "'" +  "; />");
+            document.write("<span> welcome " + "<span style=color:"+ color +";>" + name + "</span>" + "</span>");
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

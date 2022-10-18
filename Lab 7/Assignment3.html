@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title>Assignment3</title>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+        <style>
+            table{
+                margin: 3px auto;
+                width: 600px;
+            }
+            td{
+                margin: 10px 30px;
+                padding: 30px 20px;
+            }
+            .secondcol{
+                font-family: 'Source Sans Pro';
+                background-color: white;
+                border: 3px solid green; 
+            }
+            .firstCol{
+                font-family: 'Source Sans Pro';
+                background-color: rgb(13, 179, 13);
+                color: white;
+            }
+            #out{
+                background-color: rgb(102, 102, 255);
+            }
+        </style>
+        <script>
+            window.addEventListener('load', function(){
+                var names = [];
+                var inputrow = document.getElementById("inputrow");
+                var inputcell = document.createElement("td");
+                for(var i = 0; i < 5; i++){
+                    var input = prompt("Enter 5 names");
+                    names[i] = "'" + input + "'";
+                }
+                inputcell.innerText =  "[" + names + "]";
+                inputrow.appendChild(inputcell);
+                inputcell.classList.add("secondcol");
+
+                var randomnum = 0;
+                var randomnum1 = 0;
+                function generaterandom(){
+                    randomnum = Math.floor(Math.random() * 5);
+                    randomnum1 = Math.floor(Math.random() * 5);
+                    while(randomnum1 == randomnum){
+                        generaterandom();
+                    }
+                }
+                var outputrow = document.getElementById("outputrow");
+                var outputcell = document.createElement("td");
+                generaterandom();
+                var out = "'" + names[randomnum] + "', " + "'" + names[randomnum1] + "'";
+                outputcell.innerText =  "[" + out + "]";
+                outputrow.appendChild(outputcell);
+                outputcell.classList.add("secondcol");
+            });
+        </script>
+	</head>
+	<body>
+		<table>
+            <tr id="inputrow">
+                <td class="firstCol">Input</td>
+            </tr>
+            <tr id="outputrow">
+                <td class="firstCol" id="out">Output</td>
+            </tr>
+        </table>
+	</body>
+</html>

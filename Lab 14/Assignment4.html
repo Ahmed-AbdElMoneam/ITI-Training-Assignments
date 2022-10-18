@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment4</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            form{
+                width: 80vw;
+                height: 30vh;
+                margin: 12em auto;
+                background-color: yellow;
+                border-bottom-right-radius: 20px;
+                border-top-left-radius: 20px;
+                border: 2px solid black;
+                box-shadow: 5px 5px 5px black;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            section{
+                width: 37%;
+                height: 85%;
+                border: 2px solid black;
+                border-radius: 20px;
+                padding: 2%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            section:first-child{
+                background-color: pink;
+            }
+            section:last-child{
+                background-color: lightgreen;
+            }
+            input{
+                width: 28%;
+                height: 300%;
+                border-radius: 5px;
+                padding-left: 1em;
+            }
+            div{
+                margin-top: 10%;
+                margin-bottom: 20%;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function(){
+                const inputs = document.getElementsByTagName("input");
+                inputs[2].value = parseInt(inputs[0].value) + parseInt(inputs[1].value); 
+                inputs[5].value = parseInt(inputs[3].value) * parseInt(inputs[4].value); 
+                console.log()
+            });
+        </script>
+    </head>
+    <body>
+        <form method="GET" action="#">
+            <section>
+                <b>ADDITION</b>
+                <div>
+                    <input type="number" value="1">
+                    <b>+</b> <input type="number" value="1">
+                    <b>=</b> <input type="number" value="2">
+                </div>
+            </section>
+            <section>
+                <b>MULTIPLICATION</b>
+                <div>
+                    <input type="number" value="1">
+                    <b>x</b> <input type="number" value="1">
+                    <b>=</b> <input type="number" value="1">
+                </div>
+            </section>
+        </form>
+    </body>
+</html>

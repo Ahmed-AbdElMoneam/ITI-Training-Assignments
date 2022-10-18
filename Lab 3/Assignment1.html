@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title>Assignment1</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #menu{
+                text-align: center;
+            }
+            #menu>li{
+                display: inline-block;
+                margin: 20px 80px;
+                padding: 20px;
+                background-color: rgb(150, 210, 238);
+                width: 200px;
+            }
+            #menu>li:hover{
+                cursor: pointer;
+                background-color: blueviolet;
+            }
+            #contactlist{
+                position:relative;
+            }
+            #contactmenu{
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+            #contactlist:hover #contactmenu{
+                display:block;
+            }
+            #contactmenu>li{
+                background-color:rgb(247, 107, 64);
+                margin-top: 2px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                list-style:none;
+                
+            }
+            #contactmenu > li:hover{
+                background-color:rgb(255, 144, 205);
+            }
+            #phonelist{
+                position: relative;
+            }
+            #phonemenu{
+                display: none;
+                position: absolute;
+                left: 100%;
+                width: 90%;
+                top: 0;
+            }
+            #phonelist:hover #phonemenu{
+                display: block;
+            }
+            #phonemenu>li{
+                list-style: none;
+                margin: 1px;
+                padding: 10px;
+                background-color: rgb(156, 105, 172);
+            }
+            #phonemenu>li:hover{
+                background-color: rgb(181, 206, 92);
+            }
+            #emaillist{
+                position: relative;
+            }
+            #emailmenu{
+                display: none;
+                width: 90%;
+                position: absolute;
+                left: 100%;
+                top: 0;
+            }
+            #emaillist:hover #emailmenu{
+                display: block;
+            }
+            #emailmenu>li{
+                list-style: none;
+                background-color: rgb(156, 105, 172);
+                margin: 1px;
+                padding: 10px;
+            }
+            #emailmenu>li:hover{
+                background-color: rgb(181, 206, 92);
+            }
+        </style>
+	</head>
+	<body>
+		<ul id="menu">
+            <li>Home</li>
+            <li id="contactlist">Contact
+                <ul id="contactmenu">
+                    <li id="phonelist">Phone
+                        <ul id="phonemenu">
+                            <li>HeadQuarter telephone</li>
+                            <li>Company telephone</li>
+                        </ul>
+                    </li>
+                    <li id="emaillist">Email
+                        <ul id="emailmenu">
+                            <li>HeadQuarter Email</li>
+                            <li>Company Email</li>
+                        </ul>
+                    </li>
+                    <li>Chat</li>
+                </ul>
+            </li>
+            <li>About</li>
+        </ul>
+	</body>
+</html>

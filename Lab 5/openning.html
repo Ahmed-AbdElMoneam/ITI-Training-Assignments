@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>New window</title>
+        <style>
+            body{
+                background-color: yellow;
+            }
+        </style>
+        <script>
+            document.writeln("<span> Welcome " + window.opener.input + "<img src='1.jpg' style='width: 100px; height: 100px;'></br>");
+            function closePage(){
+                window.close();
+            }
+        </script>
+	</head>
+	<body>
+        <input type="button" value="close" onclick="closePage()">
+	</body>
+</html>

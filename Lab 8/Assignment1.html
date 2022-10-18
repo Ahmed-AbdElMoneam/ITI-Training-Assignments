@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>Assignment1</title>
+        <style>
+            table{
+                width: 700px;
+                margin: 20px auto;
+                position: relative;
+            }
+            li{
+                width: fit-content;
+            }
+            .frow{
+                border: 3px solid black;
+            }
+            #left{
+                text-align: right;
+            }
+            #r1{
+                width: 50%;
+                height: 200px;
+            }
+        </style>
+        <script>
+            window.addEventListener('load', function(){
+                var table = document.querySelector("table");
+                var btn1 = document.getElementById("leftbtn");
+                var btn2 = document.getElementById("rightbtn");
+                var list = document.querySelectorAll("li");
+                var newlist = document.getElementById("newlist");
+                var oldlist = document.getElementById("oldlist");
+                var add = document.querySelector("#addbtn");
+                var lielem = 0;
+                var firstrow = document.getElementById("firstrow");
+                firstrow.addEventListener("click", function(e){
+                    if(e.target.nodeName == "LI"){
+                        lielem = e.target;
+                        for(var i = 0; i < list.length; i++){
+                            list[i].style.backgroundColor = "white";
+                        }
+                        lielem.style.backgroundColor = "red";
+                    }
+                });
+                btn2.addEventListener("click", function(){
+                    if(lielem.nodeName == "LI"){
+                        newlist.appendChild(lielem); 
+                        lielem.style.backgroundColor = "white";
+                        btn2.select();
+                    }
+                });
+                btn1.addEventListener("click", function(){
+                    if(lielem.nodeName == "LI"){
+                        oldlist.appendChild(lielem); 
+                        lielem.style.backgroundColor = "white";
+                        btn1.select();
+                    }
+                });
+                add.addEventListener("click", function(){
+                    var inputcell = document.getElementById("txt");
+                    var input = inputcell.value;
+                    var newcourse = document.createElement("li");
+                    newcourse.innerText = input;
+                    oldlist.appendChild(newcourse);
+                    inputcell.focus();
+                    inputcell.select();
+                });
+            });
+        </script>
+	</head>
+	<body>
+        <table cellspacing="10">
+            <tr id="firstrow">
+                <td class="frow" id="r1">
+                    <ul id="oldlist">
+                        <li>JS</li>
+                        <li>Jquery</li>
+                    </ul>
+                </td>
+                <td class="frow">
+                    <ul id="newlist">
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr id="btnrow">
+                <td id="left"><input id="leftbtn" type="button" value="&lt;"></td>
+                <td><input id="rightbtn" type="button" value="&gt;"></td>
+            </tr>
+            <tr>
+                <td>AddCourse</td>
+                <td>
+                    <input id="txt" type="text">
+                    <input id="addbtn" type="button" value="Add">
+                </td>
+            </tr>
+        </table>
+	</body>
+</html>

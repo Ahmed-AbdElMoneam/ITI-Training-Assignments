@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <style>
+            div{
+                background-color:lightgrey;
+                margin:20px auto;
+                width:500px;
+                text-align:center;
+                padding: 10px;
+                padding-bottom: 100px;
+                border: 2px solid black;
+            }
+            td{
+                font-size: 20px;
+                border: 2px solid black;
+            }
+            table{
+                text-align:center;
+                width: 100%;
+                margin: 10px auto;
+            }
+        </style>
+        <script src="jq.js"></script>
+        <script>
+            $(function(){
+                $("input:eq(4)").click(function(){
+                    var inputtext = $("input:eq(3)").val();
+                    $("input:eq(3)").focus();
+                    $("input:eq(3)").select();
+                    if($("input:eq(0)").is(":checked")){
+                        var trow = "<tr style='background-color: lightpink;'><td><input type='checkbox'></td><td>" 
+                        + inputtext + "</td><td><img src='white.png'></td></tr>";
+                        $("table:last").append(trow);
+                    }
+                    else if($("input:eq(1)").is(":checked")){
+                        var trow = "<tr style='background-color: lightblue;'><td><input type='checkbox'></td><td>" 
+                        + inputtext + "</td><td><img src='white.png'></td></tr>";
+                        $("table:last").append(trow);
+                    }
+                    else if($("input:eq(2)").is(":checked")){
+                        var trow = "<tr style='background-color: lightgreen;'><td><input type='checkbox'></td><td>" 
+                        + inputtext + "</td><td><img src='white.png'></td></tr>";
+                        $("table:last").append(trow);
+                    }
+                    else{
+                        alert("Please Choose your news type:");
+                    }
+                });
+                $("table:last").click(function(e){
+                    if(e.target.nodeName == "INPUT"){
+                        if(e.target.checked == true){
+                            e.target.parentNode.parentNode.style.textDecoration = "line-through";
+                        }
+                        else{
+                            e.target.parentNode.parentNode.style.textDecoration = "";
+                        }
+                    }
+                });
+                $("table:last").click(function(e){
+                    if(e.target.nodeName == "IMG"){
+                        if(e.target.parentNode.parentNode.childNodes[0].childNodes[0].checked == true){
+                            var ask = confirm("Do you want to delete this task?");
+                            if(ask){
+                                e.target.parentNode.parentNode.remove();
+                            }
+                        }
+                        else{
+                            alert("Please Check The task you want to remove");
+                        }
+                    }
+                });
+                $("input:eq(5)").keyup(function(){
+                    var txt = $(this).val();
+                    $("table:last tr").each(function(){
+                        var news = $(this).children("td:eq(1)").text();
+                        if(news.toLowerCase().indexOf(txt.toLowerCase()) < 0){
+                            $(this).css("display", "none");
+                        }
+                        else{
+                            $(this).css("display", "");
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <table cellpadding="5">
+                <tr>
+                    <td >news Type: </td>
+                    <td>
+                        <input type="radio" name="type" value="sport">
+                        <label for="hoppy1"> sport</label>
+                        <input type="radio" name="type" value="social">
+                        <label for="hoppy2"> social</label>
+                        <input type="radio" name="type" value="politic">
+                        <label for="hoppy3"> politic</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <input type="text" placeholder="Add Here"/> </td>
+                    <td>
+                        <input type="button" value="add"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Search : </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+
+            </table>
+        </div>
+    </body>
+</html>

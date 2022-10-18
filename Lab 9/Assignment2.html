@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Assignment2</title>
+        <style>
+            .circle {
+                height: 50px;
+                width: 50px;
+                background-color: red;
+                border-radius: 50%;
+                display: inline-block;
+                margin: 5px;
+                cursor: pointer;
+            }
+            #blue{
+                background-color: blue;
+            }
+            #yellow{
+                background-color: yellow;
+            }
+        </style>
+        <script src="jq.js"></script>
+        <script>
+            $(function(){
+                $("span").click(function(){
+                    var circle = $(this).clone(true);
+                    $("div").append(circle);
+                });
+            });
+        </script>
+	</head>
+	<body>
+        <div>
+            <span class="circle" id="red"></span>
+            <span class="circle" id="blue"></span>
+            <span class="circle" id="yellow"></span>
+        </div>
+	</body>
+</html>

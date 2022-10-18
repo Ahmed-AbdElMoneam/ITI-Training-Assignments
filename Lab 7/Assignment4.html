@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Assignment4</title>
+        <style>
+            #usertext {
+                width: 300px;
+                height: 40px;
+            }
+            span {
+                font-weight: bold;
+                font-size: 20px;
+            }
+        </style>
+        <script>
+                var userdata;
+                var usertext;
+                var gender;
+                var color;
+                var newwindow;
+
+                function sendcookie() {
+                    usertext = document.getElementsByTagName("input")[0].value;
+                    document.cookie = ("username=" + usertext );
+                    gender = document.getElementsByClassName("gend");
+                    document.cookie = ("gender=female" );
+                    color = document.querySelectorAll("select")[0].value;
+                    document.cookie = ("color=" + color);
+
+                    newwindow = open("server4.html");
+
+                }
+        </script>
+    </head>
+    <body>
+
+        <form>
+            <span> Enter your name :</span>
+            <input type="text" id="usertext" name="usertext"/><br /> <br />
+            <span> Enter your age : </span>
+            <input type="text" id="usertext" /><br /> <br />
+
+            <span> Select your gender : </span> <br/> <br/>
+            
+            <input class="gend" type="radio" name="gender" value="male" >
+            <img src="male.png">
+        
+            <input class="gend" type="radio" name="gender" value="female">
+            <img src="female.png">
+            <br /> <br />
+            <span> Select your gender : </span>
+            <select id="colors" name="colors">
+                <option>red</option>
+                <option>green</option>
+                <option>blue</option>
+
+            </select><br /> <br />
+
+            <input type="button" value="register" onclick="sendcookie()">
+        </form>
+    
+    </body>
+</html>

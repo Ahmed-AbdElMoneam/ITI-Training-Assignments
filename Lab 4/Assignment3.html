@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Assignment3</title>
+        <style>
+
+        </style>
+        <script>
+            function prog(){
+                var sum = 0;
+                do{
+                    var input = prompt("enter numbers");
+                    var inputnum = parseInt(input);
+                    sum = sum + inputnum;
+                    if(sum > 100 || inputnum == 0){
+                        break;
+                    }
+                }while(!isNaN(inputnum));
+                alert("The summation is " + sum);
+                var ask = confirm("Do you want to do that process again?");
+                if(ask){
+                    prog();
+                }
+            }
+            
+            prog();
+        </script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,2 @@
+1- define array of colors has 10 colors 
+every two seconds : change background color for body with random color from array

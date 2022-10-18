@@ -1,0 +1,185 @@
+<html>
+	<head>
+		<title>Assignment2</title>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            #para{
+                width: 800px;
+                height: 210px;
+                margin: 20px;
+                padding: 10px;
+                border: 2px solid black;
+            }
+            #dgroup{
+                border: 2px solid black;
+                width: 70%;
+                display: flex;
+                justify-content: start;
+            }
+            .divs{
+                border: 2px solid black;
+                width: 12%;
+            }
+        </style>
+        <script>
+            window.addEventListener('load', function(){
+                var para = document.getElementById("para");
+
+                var family = document.getElementsByClassName("family");
+                for(var font of family){
+                    font.addEventListener("click", function(){
+                        para.style.fontFamily = this.value;
+                    });
+                }
+
+                var align = document.getElementsByClassName("align");
+                for(var al of align){
+                    al.addEventListener("click", function(){
+                        para.style.textAlign = this.value;
+                    });
+                }
+
+                var height = document.getElementsByClassName("height");
+                for(var heght of height){
+                    heght.addEventListener("click", function(){
+                        para.style.lineHeight = this.value;
+                    });
+                }
+
+                var spacing = document.getElementsByClassName("spacing");
+                for(var space of spacing){
+                    space.addEventListener("click", function(){
+                        para.style.letterSpacing = this.value;
+                    });
+                }
+
+                var indent = document.getElementsByClassName("indent");
+                for(var ind of indent){
+                    ind.addEventListener("click", function(){
+                        para.style.textIndent = this.value;
+                    });
+                }
+
+                var transform = document.getElementsByClassName("transform");
+                for(var trans of transform){
+                    trans.addEventListener("click", function(){
+                        para.style.textTransform = this.value;
+                    });
+                }
+
+                var decoration = document.getElementsByClassName("decoration");
+                for(var dcr of decoration){
+                    dcr.addEventListener("click", function(){
+                        para.style.textDecoration = this.value;
+                    });
+                }
+
+                var border = document.getElementsByClassName("border");
+                for(var bdr of border){
+                    bdr.addEventListener("click", function(){
+                        para.style.border = this.value;
+                    });
+                }
+
+                var bdcolor = document.getElementsByClassName("bdcolor");
+                for(var bdc of bdcolor){
+                    bdc.addEventListener("click", function(){
+                        para.style.borderColor = this.value;
+                    });
+                }
+            });
+        </script>
+	</head>
+	<body>
+		<div>
+            <p id="para">The indefinite article takes two forms. It’s the word 
+                a when it precedes a word that begins with a consonant. It’s the 
+                word an when it precedes a word that begins with a vowel. The 
+                indefinite article indicates that a noun refers to a general idea 
+                rather than a particular thing. For example, you might ask your friend, 
+                “Should I bring a gift to the party?” Your friend will understand that 
+                you are not asking about a specific type of gift or a specific item.
+            </p>
+        </div>
+        <form id="done">
+            <div id="dgroup">
+                <div class="divs">
+                    <h4>fontFamily</h4>
+                    <p><input class="family" type="radio" value="arial" name="family"> arial</p>
+                    <p><input class="family" type="radio" value="courier" name="family"> courier</p>
+                    <p><input class="family" type="radio" value="georgia" name="family"> georgia</p>
+                    <p><input class="family" type="radio" value="impact" name="family"> impact</p>
+                    <p><input class="family" type="radio" value="times new roman" name="family"> times new roman</p>
+                    <p><input class="family" type="radio" value="verdana" name="family"> verdana</p>
+                </div>
+                <div class="divs">
+                    <h4>textAlign</h4>
+                    <p><input class="align" type="radio" value="left" name="align"> left</p>
+                    <p><input class="align" type="radio" value="center" name="align"> center</p>
+                    <p><input class="align" type="radio" value="right" name="align"> right</p>
+                    <p><input class="align" type="radio" value="justify" name="align"> justify</p>
+                </div>
+                <div class="divs">
+                    <h4>lineHeight</h4>
+                    <p><input class="height" type="radio" value="normal" name="height"> normal</p>
+                    <p><input class="height" type="radio" value="10px" name="height"> 10px</p>
+                    <p><input class="height" type="radio" value="15px" name="height"> 15px</p>
+                    <p><input class="height" type="radio" value="1.5" name="height"> 1.5</p>
+                </div>
+                <div class="divs">
+                    <h4>letterSpacing</h4>
+                    <p><input class="spacing" type="radio" value="normal" name="spacing"> normal</p>
+                    <p><input class="spacing" type="radio" value="-1px" name="spacing"> -1px</p>
+                    <p><input class="spacing" type="radio" value="2px" name="spacing"> 2px</p>
+                    <p><input class="spacing" type="radio" value="3px" name="spacing"> 3px</p>
+                </div>
+                <div class="divs">
+                    <h4>textIndent</h4>
+                    <p><input class="indent" type="radio" value="0px" name="indent"> 0px</p>
+                    <p><input class="indent" type="radio" value="5px" name="indent"> 5px</p>
+                    <p><input class="indent" type="radio" value="15px" name="indent"> 15px</p>
+                    <p><input class="indent" type="radio" value="25px" name="indent"> 25px</p>
+                </div>
+                <div class="divs">
+                    <h4>textTransform</h4>
+                    <p><input class="transform" type="radio" value="none" name="transform"> none</p>
+                    <p><input class="transform" type="radio" value="capitalize" name="transform"> capitalize</p>
+                    <p><input class="transform" type="radio" value="uppercase" name="transform"> uppercase</p>
+                    <p><input class="transform" type="radio" value="lowercase" name="transform"> lowercase</p>
+                </div>
+                <div class="divs">
+                    <h4>textDecoration</h4>
+                    <p><input class="decoration" type="radio" value="none" name="decoration"> none</p>
+                    <p><input class="decoration" type="radio" value="line-through" name="decoration"> line-through</p>
+                    <p><input class="decoration" type="radio" value="overline" name="decoration"> overline</p>
+                    <p><input class="decoration" type="radio" value="underline" name="decoration"> underline</p>
+                </div>
+                <div class="divs">
+                    <h4>textBorder</h4>
+                    <p><input class="border" type="radio" value="none" name="border"> none</p>
+                    <p><input class="border" type="radio" value="dotted" name="border"> dotted</p>
+                    <p><input class="border" type="radio" value="double" name="border"> double</p>
+                    <p><input class="border" type="radio" value="groove" name="border"> groove</p>
+                    <p><input class="border" type="radio" value="dashed" name="border"> dashed</p>
+                    <p><input class="border" type="radio" value="insert" name="border"> insert</p>
+                    <p><input class="border" type="radio" value="solid" name="border"> solid</p>
+                    <p><input class="border" type="radio" value="outset" name="border"> outset</p>
+                    <p><input class="border" type="radio" value="ridge" name="border"> ridge</p>
+                </div>
+                <div class="divs">
+                    <h4>Bordercolor</h4>
+                    <p><input class="bdcolor" type="radio" value="none" name="bdcolor"> none</p>
+                    <p><input class="bdcolor" type="radio" value="pink" name="bdcolor"> pink</p>
+                    <p><input class="bdcolor" type="radio" value="red" name="bdcolor"> red</p>
+                    <p><input class="bdcolor" type="radio" value="green" name="bdcolor"> green</p>
+                    <p><input class="bdcolor" type="radio" value="blue" name="bdcolor"> blue</p>
+                    <p><input class="bdcolor" type="radio" value="yellow" name="bdcolor"> yellow</p>
+                    <p><input class="bdcolor" type="radio" value="purple" name="bdcolor"> purple</p>
+                </div>
+            </div>
+        </form>
+	</body>
+</html>

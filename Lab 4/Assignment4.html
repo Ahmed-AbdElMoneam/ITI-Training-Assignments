@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Assignment4</title>
+        <style>
+
+        </style>
+        <script>
+            var elements = [];
+            var add = 0;
+            var mult = 1;
+            var div = 1;
+            for(var i = 0; i < 3; i++){
+                var input = prompt("Please enter your three numbers");
+                elements[i] = parseInt(input);
+                add = add + elements[i];
+                mult = mult * elements[i];
+                if(i == 0){
+                    div = div * elements[i];
+                }
+                else{
+                    div = div / elements[i];
+                }
+            }
+            document.write("<h1>Adding -- Multiplying -- and dividing 3 values</h1><hr>");
+            document.write("<h2><spsn style='color: red;'>sum of the 3 values </span><span style='color: black'>" 
+                + elements[0] + "+" + elements[1] + "+" + elements[2] + " = " + add + "</span></h2>");
+            document.write("<h2><spsn style='color: red;'>multiplication of the 3 values </span><span style='color: black'>" 
+                + elements[0] + "*" + elements[1] + "*" + elements[2] + " = " + mult + "</span></h2>");
+            document.write("<h2><spsn style='color: red;'>division of the 3 valuesof the 3 values </span><span style='color: black'>" 
+                + elements[0] + "/" + elements[1] + "/" + elements[2] + " = " + div + "</span></h2>");
+        </script>
+	</head>
+	<body>
+		
+	</body>
+</html>

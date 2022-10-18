@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment1</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            div{
+                width: 85vw;
+                margin: 1em auto;
+                height: 94vh;
+                background-color: rgb(253, 147, 85);
+                border-radius: 2em;
+                border: 2px solid black;
+                display: flex;
+                justify-content: space-evenly;
+            }
+            div>section:first-child{
+                width: 16%;
+                border: 2px solid black;
+                border-radius: 2em;
+                margin: 1.5em;
+                box-shadow: 30px 3px 50px 15px white, -1px -1px 20px 5px white;
+                background-color: rgb(250, 235, 148);
+            }
+            div ul{
+                margin: 0.8em 1.7em 0.5em 1.7em;
+                background-color: white;
+                padding: 2% 0;
+                box-shadow: 20px 5px 30px white;
+                border: 1px solid grey;
+            }
+            div li{
+                list-style: none;
+                text-align: center;
+                margin: 0.2em 0em;
+            }
+            div input[type=button]{
+                padding: 1em;
+                width: 90%;
+                border-radius: 10px;
+                border: 4px groove rgb(144, 144, 255);
+                background-color: rgb(250, 245, 217);
+            }
+            @keyframes btnanim {
+                from{
+                    transform: rotate(0deg);
+                    background-color: orange;
+                }
+                to{
+                    transform: rotate(360deg);
+                    background-color: white;
+                }
+            }
+            div input[type=button]:hover{
+                cursor: pointer;
+                animation: btnanim;
+                animation-duration: 1s;
+                animation-iteration-count: 1;
+            }
+            .orangeclass{
+                cursor: pointer;
+                animation: btnanim;
+                animation-duration: 1s;
+                animation-iteration-count: 1;
+            }
+            div>section:last-child{
+                width: 70%;
+                border: 2px solid black;
+                margin: 1.5em;
+                border-radius: 2em;
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                box-shadow: 5px 5px 30px 15px white, -40px -10px 50px 5px white;
+                background-color: rgb(250, 235, 148);
+            }
+            video{
+                width: 80%;
+                margin-left: 10%;
+                border-radius: 20%;
+                box-shadow: 0 0 50px 70px white;
+                transition: transform 1s;
+            }
+            video:hover{
+                transform: scale(1.23, 1.55);
+                box-shadow: 0 0 50px 20px white;
+                transition: transform 1s;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function(){
+                const vd = document.getElementsByTagName("video")[0];
+                const ulist = document.getElementsByTagName("ul")[0];
+                const lists = document.getElementsByTagName("input");
+                console.log(vd);
+                vd.addEventListener("click", function(){
+                    this.muted = false;
+                    if(this.paused){
+                        this.play();
+                    }else if(!this.paused){
+                        this.pause();
+                    }
+                });
+                vd.addEventListener("dblclick", function(e){
+                    this.requestFullscreen();
+                });
+                ulist.addEventListener("mouseover", function(e){
+                    ulist.style.backgroundColor = "orange"
+                    for(var i = 0; i < 10; i++){
+                        lists[i].style.backgroundColor = "orange";
+                    }
+                    if(e.target.nodeName == "INPUT"){
+                        e.target.style.backgroundColor = "white";
+                    }
+                });
+                ulist.addEventListener("mouseout", function(){
+                    ulist.style.backgroundColor = "white";
+                    for(var i = 0; i < 10; i++){
+                        lists[i].style.backgroundColor = "rgb(250, 245, 217)";
+                    }
+                });
+                for(var i = 0; i < 10; i++){
+                    lists[i].addEventListener("click", function(e){
+                        e.target.style.backgroundColor = "rgb(41, 169, 255)";
+                        e.target.style.color = "white";
+                        if(e.target.nodeName == "INPUT"){
+                            vd.src = `video/${e.target.classList[0]}.mp4`;
+                            vd.muted = false;
+                        }
+                    });
+                    lists[i].addEventListener("mouseout", function(e){
+                        e.target.style.color = "black";
+                    });
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <section>
+                <ul>
+                    <li class="1"><input class="1" type="button" value="Video1"></li>
+                    <li class="2"><input class="2" type="button" value="Video2"></li>
+                    <li class="3"><input class="3" type="button" value="Video3"></li>
+                    <li class="4"><input class="4" type="button" value="Video4"></li>
+                    <li class="5"><input class="5" type="button" value="Video5"></li>
+                    <li class="6"><input class="6" type="button" value="Video6"></li>
+                    <li class="7"><input class="7" type="button" value="Video7"></li>
+                    <li class="8"><input class="8" type="button" value="Video8"></li>
+                    <li class="9"><input class="9" type="button" value="Video9"></li>
+                    <li class="10"><input class="10" type="button" value="Video10"></li>
+                </ul>
+            </section>
+            <section>
+                <video src="video/1.mp4" id="vd" poster="pst.png" autoplay muted> 
+            </section>
+        </div>
+    </body>
+</html>

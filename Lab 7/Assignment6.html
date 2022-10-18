@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Assignment6</title>
+        <style>
+            
+        </style>
+        <script>
+            var colors = ["red", "green", "blue", "white", "black", "orange", "yellow", "brown", "peru", "purple"];
+            
+            function changecolor() {
+                var random = Math.floor(Math.random() * colors.length);
+                var bodycolor = colors[random];
+                document.body.style.backgroundColor = bodycolor;
+                
+            }
+            setInterval("changecolor()", 2000);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

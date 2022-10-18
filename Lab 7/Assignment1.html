@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>Assignment1</title>
+        <style>
+            div{
+                border: 5px solid black;
+                width: 600px;
+            }
+            input{
+                margin: 3px;
+            }
+            #txt{
+                width: 90%;
+            }
+            td{
+                text-align: center;
+                font-weight: bold;
+                margin: 1px;
+                padding: 1px;
+            }
+        </style>
+        <script>
+            window.addEventListener('load', function(){
+                var addbtn = document.getElementById("addbtn");
+                var countbtn = document.getElementById("countbtn");
+                var tble = document.getElementsByTagName("table")[0];
+                var index = 1;
+                addbtn.addEventListener("click", function (){
+                    var input = document.getElementById("txt");
+                    var row = document.createElement("tr");
+                    tble.appendChild(row);
+                    var no = document.createElement("td");
+                    no.innerText = index;
+                    index ++;
+                    var news = document.createElement("td");
+                    news.innerText = input.value;
+                    row.appendChild(no);
+                    row.appendChild(news);
+                });
+                countbtn.addEventListener("click", function (){
+                    alert("Number of table rows are: " + (index - 1));
+                });
+            });
+        </script>
+	</head>
+	<body>
+		<div>
+            <input id="txt" type="text">
+            <input id="addbtn" type="button" value="Add">
+            <table cellpadding="10">
+                <tr>
+                    <th>No.</th>
+                    <th>News</th>
+                </tr>
+                <tr>
+                    
+                </tr>
+            </table>
+            <input id="countbtn" type="button" value="count rows">
+        </div>
+	</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment2</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            div{
+                width: 80vw;
+                height: 60vh;
+                margin: 2vw auto;
+                background-color: rgb(253, 147, 85);
+                border-radius: 20px;
+                border: 3px solid black;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
+            section{
+                width: 90%;
+                height: 40%;
+                margin: 2% auto;
+                background-color: rgb(250, 235, 148);
+                border-radius: 20px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            @keyframes imaganim {
+                from{
+                    transform: rotate(0deg);
+                }
+                to{
+                    transform: rotate(360deg) scale(1.5);
+                }
+            }
+            img{
+                width: 10%;
+                height: 80%;
+                border: 3px groove rgb(129, 255, 238);
+            }
+            img:hover{
+                animation: imaganim;
+                animation-duration: 1s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function(){
+                const imgs = document.getElementsByTagName("img");
+                const sec = document.getElementById("sec2");
+                const sec1 = document.getElementById("sec1");
+                for(var i = 0; i < imgs.length; i++){
+                    imgs[i].addEventListener("dragstart", function(e){
+                        //console.log(e);
+                        e.dataTransfer.setData('targetimage', e.srcElement.outerHTML);
+                    });
+                    imgs[i].addEventListener("dragend", function(e){
+                        e.preventDefault();
+                        e.target.style.display = 'none';
+                    });
+                }
+                sec.addEventListener('dragover', function(e){
+                    e.preventDefault();
+                });
+                sec.addEventListener("dragenter", function(e){
+                    e.preventDefault();
+                    e.target.style.backgroundColor = 'lightblue';
+                });
+                sec.addEventListener("drop", function(e){
+                    e.preventDefault();
+                    this.innerHTML += e.dataTransfer.getData('targetimage');
+                    if(sec.children.length === 7){
+                        sec1.innerHTML = "EMPTY";
+                        sec1.style.backgroundColor = "lightgreen";
+                        sec1.style.height = "20%";
+                    }
+                });
+                sec1.addEventListener('dragleave', function(e){
+                    e.preventDefault();
+                });
+                console.log(sec.children.length);
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <section id="sec1">
+                <img src="1.jpg">
+                <img src="2.jpg">
+                <img src="3.jpg">
+                <img src="4.jpg">
+                <img src="5.jpg">
+                <img src="6.jpg">
+                <img src="7.jpg">
+            </section>
+            <section id="sec2">
+
+            </section>
+        </div>
+    </body>
+</html>

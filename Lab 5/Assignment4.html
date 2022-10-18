@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Assignment4</title>
+        <style>
+            span{
+                color: red;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .numbers{
+                font-size: 30px;
+                color: black;
+            }
+        </style>
+        <script>
+            var elements = [];
+            var elements2 = [];
+            for(var i = 0; i < 5; i++){
+                var input = prompt("Enter 5 Numbers:");
+                var inputnum = parseInt(input);
+                elements[i] = inputnum;
+            }
+            elements2 = elements;
+            document.writeln("<h1>Sorting</h1><hr>");
+            document.write("<span>u've entered the values of </span>" + "<span class='numbers'>" + elements.join(" , ") + "</span></br></br>");
+            var descending = elements.sort(
+                function(fn, sn){
+                    return sn - fn;
+                }
+            );
+            document.write("<span>ur values after being sorted descending </span>" + "<span class='numbers'>" + descending.join(" , ") + "</span></br></br>");
+            var ascending = elements.sort(
+                function(fn, sn){
+                    return fn - sn;
+                }
+            );
+            document.write("<span>ur values after being sorted ascending </span>" + "<span class='numbers'>" + ascending.join(" , ") + "</span></br></br>");
+        </script>
+	</head>
+	<body>
+		
+	</body>
+</html>

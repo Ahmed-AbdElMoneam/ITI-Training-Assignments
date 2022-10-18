@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <title>Assignment2</title>
+        <style>
+            table {
+                border: 3px solid black;
+                margin: 10px auto;
+                padding:10px;
+            }
+
+            span {
+                display: none;
+            }
+
+            .error {
+                border: 5px solid red;
+            }
+
+            .success {
+                border: 2px solid green;
+            }
+        </style>
+        <script>
+            window.addEventListener('load', function () {
+                usertxt = document.getElementById('usertxt');
+                userzip = document.getElementById('userzip');
+                useremail = document.getElementById('useremail');
+                usercountry = document.getElementById('usercountry');
+                zip = document.querySelectorAll("select")[0].value;
+                hoppy1 = document.getElementById('hoppy1');
+                hoppy2 = document.getElementById('hoppy2');
+                hoppy3 = document.getElementById('hoppy3');
+                hoppy4 = document.getElementById('hoppy4');
+            
+                usertxt.focus();
+                usertextmessage = this.document.getElementById('usertextmessage');
+                userhoppymessage = this.document.getElementById('userhoppymessage');
+                useremailmessage = this.document.getElementById('useremailmessage');
+
+                usertxt.addEventListener('blur', function () {
+                    if (!isvalidusername()) {
+                        usertextmessage.style.display = "block";
+                        usertxt.classList.add("error");
+                        usertxt.focus();
+                        usertxt.select();
+                    } else {
+                        usertextmessage.style.display = "none";
+                        usertxt.className = "success";
+                    }
+                });
+
+                useremail.addEventListener('blur', function () {
+                    if (!isvaliduseremail()) {
+                        useremailmessage.style.display = "block";
+                        useremail.className = "error";
+                        useremail.focus();
+                        useremail.select();
+                    } else {
+                        useremailmessage.style.display = "none";
+                        useremail.className = "success";
+                    }
+                });
+
+                usercountry.addEventListener("change", function () {
+                    zip = document.querySelectorAll("select")[0].value;
+                    userzip.value = zip;
+                });
+
+                this.document.forms[0].addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    if (!isvalidusername()) {
+                        e.preventDefault();
+                        usertextmessage.style.display = "block"
+                    }
+                    else if(!isvaliduserhoppies()){
+                        e.preventDefault();
+                        userhoppymessage.style.display = "block"
+                    }
+                    else if(!isvaliduseremail()){
+                        e.preventDefault();
+                        useremailmessage.style.display = "block"
+                    }
+                });
+
+                this.document.forms[0].addEventListener('reset', function (e) {
+                    if (!confirm("Are You Sure You Want To Clear")) {
+                        e.preventDefault();
+                    } else {
+                        usertxt.focus();
+                    }
+                });
+            });
+            
+            function isvalidusername(){
+                var usernamepattern = /^[A-Z]{5,10}$/;
+                return usertxt.value.match(usernamepattern);
+            }
+        
+            function isvaliduseremail() {
+                var emailExpr = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                return useremail.value.match(emailExpr);
+            }
+            function isvaliduserhoppies() {
+                if (hoppy1.checked || hoppy2.checked || hoppy3.checked || hoppy4.checked) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="server.html">
+            <table>
+                <tr>
+                    <td rowspan="2">Name: </td>
+                    <td><input type="text" id="usertxt" /></td>
+                </tr>
+                <tr>
+                    <td><span id="usertextmessage">Sorry , Incorrect Username</span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Country: </td>
+                    <td>
+                        <select id="usercountry">
+                            <option value="1111" >Egypt</option>
+                            <option value="2222">France</option>
+                            <option value="3333">USA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span id="usercountrymessage">Sorry, choose your country </span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Zip: </td>
+                    <td><input type="text" id="userzip" /></td>
+                </tr>
+                <tr>
+                    <td><span id="userzipmessage">Sorry , This field must be filled in</span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">E-Mail: </td>
+                    <td><input type="text" id="useremail" /></td>
+                </tr>
+                <tr>
+                    <td><span id="useremailmessage">Sorry , Incorrect email</span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2" id="userhoppeis">Hoppies: </td>
+                    <td>
+                        <input type="checkbox" id="hoppy1" name="hoppy1" value="writing">
+                        <label for="hoppy1"> writing</label>
+                        <input type="checkbox" id="hoppy2" name="hoppy2" value="reading">
+                        <label for="hoppy2"> reading</label>
+                        <input type="checkbox" id="hoppy3" name="hoppy3" value="swimming">
+                        <label for="hoppy3"> swimming</label>
+                        <input type="checkbox" id="hoppy4" name="hoppy4" value="sleeping">
+                        <label for="hoppy4"> sleeping</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span id="userhoppymessage">Sorry , You must choose your hoppies</span></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Register" /></td>
+                    <td><input type="reset" value="Clear" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

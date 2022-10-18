@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <style>
+            div{
+                background-color:lightgrey;
+                margin:20px auto;
+                width:500px;
+                text-align:center;
+                padding: 10px;
+                padding-bottom: 100px;
+                border: 2px solid black;
+            }
+            td{
+                font-size: 20px;
+                border: 2px solid black;
+            }
+            table{
+                text-align:center;
+                width: 100%;
+                margin: 10px auto;
+            }
+        </style>
+        <script>
+            window.addEventListener("load", function(){
+                var inputs = document.querySelectorAll("input");
+                inputs[3].select();
+                var addbtn = document.querySelector("#addbtn");
+                var table = document.getElementById("tble");
+                var newrow = 0;
+                var tdone = 0;
+                var tdtwo = 0;
+                var tdthree = 0;
+                var searchtxt = document.getElementById("searchtxt");
+                var rows = 0;
+                addbtn.addEventListener("click", function(){
+                    newrow = document.createElement("tr");
+
+                    tdone = document.createElement("td");
+                    tdtwo = document.createElement("td");
+                    tdthree = document.createElement("td");
+
+                    var check = document.createElement("input");
+                    check.type = "checkbox";
+                    tdone.appendChild(check);
+                    newrow.appendChild(tdone);
+
+                    tdtwo.innerText = inputs[3].value;
+                    newrow.appendChild(tdtwo);
+                    inputs[3].select();
+
+                    var img = document.createElement("img");
+                    img.src = "white.png"
+                    tdthree.appendChild(img);
+                    newrow.appendChild(tdthree);
+
+                    if(inputs[0].checked == true){
+                        newrow.style.backgroundColor = "lightpink";
+                        table.appendChild(newrow);
+                    }
+                    else if(inputs[1].checked == true){
+                        newrow.style.backgroundColor = "lightblue";
+                        table.appendChild(newrow);
+                    }
+                    else if(inputs[2].checked == true){
+                        newrow.style.backgroundColor = "lightgreen";
+                        table.appendChild(newrow);
+                    }
+                    else{
+                        alert("Please Choose your news type:");
+                    }
+                }); 
+                table.addEventListener("click", function(e){
+                    if(e.target.nodeName == "INPUT"){
+                        if(e.target.checked == true){
+                            e.path[2].style.textDecoration = "line-through";
+                        }
+                        else{
+                            e.path[2].style.textDecoration = "";
+                        }
+                    }
+                });
+                table.addEventListener("click", function(e){
+                    if(e.target.nodeName == "IMG"){
+                        if(e.path[2].childNodes[0].childNodes[0].checked == true){
+                            var ask = confirm("Do you want to delete this task?");
+                            if(ask){
+                                e.path[2].remove();
+                            }
+                        }
+                        else{
+                            alert("Please Check The task you want to remove");
+                        }
+                    }
+                });
+                searchtxt.addEventListener("keyup", function(){
+                    rows = document.getElementsByTagName("tr");
+                    var txt = document.getElementById("searchtxt");
+                    for(var i = 3; i < rows.length; i++){
+                        if(!(rows[i].childNodes[1].innerText.indexOf(txt.value) > -1)){
+                            rows[i].style.display = "none";
+                        }
+                        else{
+                            rows[i].style.display = "";
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <table cellpadding="5">
+                <tr>
+                    <td >news Type: </td>
+                    <td>
+                        <input type="radio" id="hoppy1" name="type" value="sport">
+                        <label for="hoppy1"> sport</label>
+                        <input type="radio" id="hoppy2" name="type" value="social">
+                        <label for="hoppy2"> social</label>
+                        <input type="radio" id="hoppy3" name="type" value="politic">
+                        <label for="hoppy3"> politic</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <input type="text" placeholder="Add Here"/> </td>
+                    <td>
+                        <input id="addbtn" type="button" value="add"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Search : </td>
+                    <td>
+                        <input id="searchtxt" type="text" />
+                    </td>
+                </tr>
+            </table>
+            <table id="tble">
+
+            </table>
+        </div>
+    </body>
+</html>

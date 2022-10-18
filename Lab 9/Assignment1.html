@@ -1,0 +1,119 @@
+<html>
+	<head>
+		<title>Assignment1</title>
+        <style>
+           #done{
+               width: 700px;
+               margin: 10px auto;
+               border: 2px solid black;
+               padding: 20px;
+               background-color: lightcoral;
+           }
+           table{
+               margin: 10px auto;
+               width: 70%;
+               border: 3px dotted lightblue;
+               text-align: center;
+           }
+           td{
+            border: 2px solid black;
+           }
+        </style>
+        <script src="jq.js"></script>
+        <script>
+            $(function(){
+                $("input:eq(1)").click(function(){
+                    $(":text:first").focus();
+                    $(":text:first").select();
+                    $(":text:first").keyup(function(){
+                        var inputtext = $(this).val();
+                        $("tr:gt(0)").each(function(){
+                            var firstname = $(this).children("td:first").text();
+                            if(firstname.toLowerCase().indexOf(inputtext.toLowerCase()) < 0){
+                                $(this).css("display", "none");
+                            }
+                            else{
+                                $(this).css("display", "");
+                            }
+                        });
+                    });
+                });
+
+                $("input:eq(2)").click(function(){
+                    $("input:first").focus();
+                    $("input:first").select();
+                    $("input:first").keyup(function(){
+                        var inputtext = $(this).val();
+                        $("tr:gt(0)").each(function(){
+                            var lastname = $(this).children("td:last").text();
+                            if(lastname.toLowerCase().indexOf(inputtext.toLowerCase()) < 0){
+                                $(this).css("display", "none");
+                            }
+                            else{
+                                $(this).css("display", "");
+                            }
+                        });
+                    });
+                });
+
+                $("input:eq(3)").click(function(){
+                    $("input:first").focus();
+                    $("input:first").select();
+                    $("input:first").keyup(function(){
+                        var inputtext = $(this).val();
+                        $("tr:gt(0)").each(function(){
+                            var firstname = $(this).children("td:first").text().toLowerCase();
+                            var lastname = $(this).children("td:last").text().toLowerCase();
+                            if(firstname.indexOf(inputtext.toLowerCase()) < 0 && lastname.indexOf(inputtext.toLowerCase()) < 0){
+                                $(this).css("display", "none");
+                            }
+                            else{
+                                $(this).css("display", "");
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+	</head>
+	<body>
+        <div id="done">
+            <div>
+                <span>Search: <input type="text" id="txt"></span>
+                <span><input type="radio" name="search" value="FirstName">Search By FirstName</span>
+                <span><input type="radio" name="search" value="LastName">Search By LastName</span>
+                <span><input type="radio" name="search" value="All">Search By All</span>
+            </div>
+            <table>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                </tr>
+                <tr>
+                    <td>Yasser</td>
+                    <td>Ibrahim</td>
+                </tr>
+                <tr>
+                    <td>Ali</td>
+                    <td>El-Sayed</td>
+                </tr>
+                <tr>
+                    <td>Rwan</td>
+                    <td>Mohamed</td>
+                </tr>
+                <tr>
+                    <td>Karim</td>
+                    <td>gaser</td>
+                </tr>
+                <tr>
+                    <td>Essam</td>
+                    <td>Metwally</td>
+                </tr>
+                <tr>
+                    <td>Karam</td>
+                    <td>Mostafa</td>
+                </tr>
+            </table>
+        </div>
+	</body>
+</html>

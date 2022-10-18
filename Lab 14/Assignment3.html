@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment3</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            div{
+                width: 80vw;
+                /*height: 60vh;*/
+                margin: 2vw auto;
+                background-color: rgb(253, 147, 85);
+                border-radius: 20px;
+                border: 3px solid black;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
+            section{
+                width: 90%;
+                height: 40vh;
+                margin: 2% auto;
+                background-color: rgb(250, 235, 148);
+                border-radius: 20px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                border: 3px solid black;
+            }
+            #sec1{
+                height: 15vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            input{
+                margin: 0 5%;
+                width: 12em;
+                padding: 2%;
+                background: -webkit-linear-gradient(90deg, rgb(10, 75, 172), blue, white);
+                color: white;
+                font-size: 1.2em;
+                border-radius: 20px;
+            }
+            input:hover{
+                transform: skew(20deg);
+            }
+        </style>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"></script>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        <div>
+            <section id="sec1">
+                <input type="button" value="Display Map">
+                <input type="button" value="Detailed Information">
+            </section>
+            <section id="sec2">
+
+            </section>
+        </div>
+    </body>
+</html>

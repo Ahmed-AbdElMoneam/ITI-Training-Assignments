@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+        <script>
+            /*var name = document.cookie.substring(document.cookie.indexOf('u'), document.cookie.indexOf(";")).split("=")[1];
+            var gender = document.cookie.substring(document.cookie.indexOf('2'), document.cookie.indexOf(";", document.cookie.indexOf('2'))).split("=")[1];
+            var color = document.cookie.substring(document.cookie.indexOf('3'), document.cookie.indexOf(";", document.cookie.indexOf('3'))).split("=")[1];
+            console.log(name);
+            console.log(document.cookie);*/
+            var gender = document.cookie.split(";")[0].split("=")[1];
+            var name = document.cookie.split(";")[1].split("=")[1];
+            var color = document.cookie.split(";")[2].split("=")[1]
+            document.write("<img " + "src='" + gender + ".png"+ "'" +  "; /> ");
+            document.write("<span> welcome " + "<span style=color:"+ color +";>" + name + "</span>" + "</span>");
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Assignment5</title>
+        <script>
+            var sum = 0;
+            for(var i = 0; i < 5; i++){
+                var input = prompt("enter even number no." + (i+1));
+                var inputnum = parseInt(input);
+                while(inputnum % 2 != 0){
+                    input = prompt("Again please enter even number no." + (i+1));
+                    inputnum = parseInt(input);
+                }
+                sum = sum + inputnum;
+            }
+            document.write("<h1>Sum is " + sum + "</h1>");
+            alert("Sum is " + sum);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

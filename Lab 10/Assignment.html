@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Assignment</title>
+        <style>
+            
+        </style>
+        <script>
+            //Assignment 1
+            let arr = [-50, 1000, 34, 10, 2, 27, -1, -200, 320, 34, 55, 7];
+            let ascend = arr.sort((n1, n2)=>n1-n2);
+            console.log(`The array ordered in asceending order: ${ascend}`);
+            let descend = ascend.reverse();
+            console.log(`The array ordered in descending order: ${descend}`);
+            let filteration = arr.filter((arrelem)=> arrelem < 50);
+            console.log(`Only numbers less than 50 in array: ${filteration}`);
+            let maximum = Math.max(...arr);
+            console.log(`Max number in array: ${maximum}`);
+            let minimum = Math.min(...arr);
+            console.log(`Min number in array: ${minimum}`);
+
+            //Assignment 2
+            let adding = (op1, op2, ...numbers)=>{
+                console.log(`Our first op(${op1}) output is: ${eval(numbers.join(`${op1}`))} && Our second op(${op2}) output is: ${eval(numbers.join(`${op2}`))}`);
+            }
+            adding("+","*",5, 6, 10, 14, 6);
+        </script>
+	</head>
+	<body>
+        
+	</body>
+</html>
